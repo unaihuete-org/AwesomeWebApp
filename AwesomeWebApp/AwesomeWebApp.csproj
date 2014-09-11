@@ -129,6 +129,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="App_Data\jobs\continuous\myjob22\run.ps1" />
     <None Include="Properties\PublishProfiles\codez.pubxml" />
     <None Include="Properties\PublishProfiles\sitesite22.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
