@@ -1,6 +1,6 @@
 echo Starting work
 
 while ($true) {
-  echo "We be working"
-  Start-Sleep -s 5
+  echo "We be working in London"
+  Start-Sleep -s 8
 }
