@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>CDN Demo</h1>
+
+<div class="container">
+
+    <table class="table">
+        <tr>
+            <td>
+                <p>Web Server Hosted Image:</p>
+                <img src="~/Content/images/image_v1.jpg" alt="Star Wars ship pic goes here" height=1065 width=600>
+            </td>
+
+            <td>
+                <p>CDN Hosted Image:</p>
+                <!--Replace the image source with the same file location but relevant to the CDN address-->
+                <img src="http://az664986.vo.msecnd.net/Content/images/image_v1.jpg" alt="Star Wars ship pic goes here" height=400 width=266>
+            </td>
+
+        </tr>
+    </table>
+
+</div>
