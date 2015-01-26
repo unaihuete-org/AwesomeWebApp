@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Web.Mvc;
@@ -9,6 +10,10 @@ namespace AwesomeWebApp
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+
+        //used to store leaking memory
+        public static List<Byte[]> _memListLeakGen = new List<Byte[]>();
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();

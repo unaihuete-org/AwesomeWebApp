@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "In Application Performance Issues";
+}
+
+<div class="jumbotron">
+    <h1>Azure Websites</h1>
+    <p class="lead">This page includes perf issues examples</p>
+    
+</div>
+
+
+<div class="panel-primary">
+    <p>Use 'a lot of memory' to trigger auto-heal quickly and use 'little memory' to show slow emory leak </p>
+
+    <p>Private memory size = @String.Format("{0:n0}", ViewBag.Proc.PrivateMemorySize)</p>
+    <p>Private memory allocated= @String.Format("{0:n0}", ViewBag.Proc.PrivateMemorySize64)</p>
+
+    <p>Virtual memory size = @String.Format("{0:n0}", ViewBag.Proc.VirtualMemorySize)</p>
+    <p>Virtual memory allocated= @String.Format("{0:n0}", ViewBag.Proc.VirtualMemorySize64)</p>
+
+    <p>list count = @String.Format("{0:n0}", ViewBag.ListSize)</p>
+
+    VirtualMemorySize64
+</div>
+    <br />
+<div class="btn-group-justified">
+    <div class="col-md-4 text-center">
+        <p><a class="btn btn-lg btn-danger" href="~/PerfIssues/MemLeak?memsize=52428800">Add a lot of memory</a></p>
+    </div>
+    <div class="col-md-4 text-center">
+        <p><a class="btn btn-lg btn-warning" href="~/PerfIssues/MemLeak">Add little memory</a></p>
+    </div>
+</div>
+
+<div class="btn-group-justified">
+    <br />
+    <p>Use 'a lot of memory' to trigger auto-heal quickly and use 'little memory' to show slow emory leak </p>
+    <div class="col-md-4 text-center">
+        <p><a class="btn btn-lg btn-warning" id="SleepButton">Sleep for a while (10 sec)</a></p>
+    </div>
+    <div class="col-md-4 text-center">
+        <p><a class="btn btn-lg btn-danger" id="SpinCpuButton">Spin CPU like Crazy!</a></p>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+    $(function() {
+        $("#SleepButton").click(function () {
+            $.get("@Url.Action("SleepBtnHandler", "PerfIssues")");
+        });
+    });
+
+    $(function() {
+        $("#SpinCpuButton").click(function () {
+            $.get("@Url.Action("SpinCpuBtnHandler", "PerfIssues")");
+        });
+    });
+    </script>
+}
