@@ -113,6 +113,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CdnDemoController.cs" />
+    <Compile Include="Controllers\EasyAuthController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PerfIssuesController.cs" />
@@ -162,6 +163,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\CdnDemo\Index.cshtml" />
     <Content Include="Views\PerfIssues\Index.cshtml" />
+    <Content Include="Views\EasyAuth\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
