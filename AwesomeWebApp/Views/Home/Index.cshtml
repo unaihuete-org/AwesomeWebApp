@@ -1,12 +1,30 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    
+    if (System.Configuration.ConfigurationManager.AppSettings["STAGE"] == "true")
+    {
+        ViewBag.Title = "STAGE";
+    }
+    
 }
 
-<div class="jumbotron">
-    <h1>Azure Websites</h1>
-    <p class="lead">Awesome Web App is running on Azure Websites.</p>
-    <p>Welcome to Azure Websites Webminar!</p>
-</div>
+@{
+    if (System.Configuration.ConfigurationManager.AppSettings["STAGE"] == "true")
+    {
+        <div class="jumbotron">
+            <h1>Azure Websites STAGE </h1>
+            <p class="lead">Awesome Web App is running on Azure Websites.</p>
+        </div>
+    }
+    else
+    {
+        <div class="jumbotron">
+            <h1>Azure Websites </h1>
+            <p class="lead">Awesome Web App is running on Azure Websites.</p>
+        </div>
+    }
+}
+
 
 <div class="row">
     <div class="col-md-4 text-center">

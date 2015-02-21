@@ -8,25 +8,47 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Awesome Web App", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    @{
+     if (System.Configuration.ConfigurationManager.AppSettings["STAGE"] == "true") 
+     {
+        @:<div class="navbar navbar navbar-fixed-top">
+     }
+     else
+     {
+        @:<div class="navbar navbar-inverse navbar-fixed-top">
+
+     }
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Awesome Web App", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("CDN Demo", "Index", "CdnDemo")</li>
+                        <li>@Html.ActionLink("Perf Issues Demo", "Index", "PerfIssues")</li>
+                        <li>@Html.ActionLink("Easy-Auth", "Index", "EasyAuth")</li>
+                        <li>@Html.ActionLink("Staging Slots", "Index", "StagingSlots")</li>
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("CDN Demo", "Index", "CdnDemo")</li>
-                    <li>@Html.ActionLink("Perf Issues Demo", "Index", "PerfIssues")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+            <br />
+        @:</div>
+    }
+    
+             
+    @{
+        if (System.Configuration.ConfigurationManager.AppSettings["STAGE"] == "true")
+        {
+            <div style="color:red; font-size:x-large"><br />Stage Stage Stage Stage Stage Stage Stage Stage Stage Stage Stage Stage Stage Stage</div>
+        }
+    }
+
     <div class="container body-content">
         @RenderBody()
         <hr />

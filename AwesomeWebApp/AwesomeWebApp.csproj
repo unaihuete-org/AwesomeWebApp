@@ -117,6 +117,7 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PerfIssuesController.cs" />
+    <Compile Include="Controllers\StagingSlotsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -164,6 +165,7 @@
     <Content Include="Views\CdnDemo\Index.cshtml" />
     <Content Include="Views\PerfIssues\Index.cshtml" />
     <Content Include="Views\EasyAuth\index.cshtml" />
+    <Content Include="Views\StagingSlots\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

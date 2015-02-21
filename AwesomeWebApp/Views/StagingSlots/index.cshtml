@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<h1>Staging Slots and Sticky Setting</h1>
+<br />
+<div class="container">
+    <table border="1">
+        <tbody>
+            <tr>
+                <td>Crush Rate</td>
+                <td>@ViewBag.crushRate</td>
+            </tr>
+            <tr>
+                <td>Connection String</td>
+                <td>@ViewBag.databaseConnectionString</td>
+            </tr>
+            <tr>
+                <td>None Stick Setting</td>
+                <td>@ViewBag.noneStickSetting</td>
+            </tr>
+        </tbody>
+    </table>
+<br />
+    <div>Random crush value = @ViewBag.realCrushRate</div>
+</div>
