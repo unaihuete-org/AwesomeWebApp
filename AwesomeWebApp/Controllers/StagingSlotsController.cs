@@ -21,21 +21,21 @@ namespace AwesomeWebApp.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="crushRate"></param>
+        /// <param name="crashRate"></param>
         /// <returns></returns>
-        public ActionResult CrushApp(float crushRate = 0)
+        public ActionResult CrashApp(float crashRate = 0)
         {
-            if (!string.IsNullOrEmpty(WebConfigurationManager.AppSettings["CRUSH_RATE"]) && crushRate == 0.0)
+            if (!string.IsNullOrEmpty(WebConfigurationManager.AppSettings["CRASH_RATE"]) && crashRate == 0.0)
             {
-                float.TryParse(WebConfigurationManager.AppSettings["CRUSH_RATE"].ToString(), out crushRate);
+                float.TryParse(WebConfigurationManager.AppSettings["CRASH_RATE"].ToString(), out crashRate);
             }
 
-            double realCrushRate = 1 - crushRate;
+            double realCrashRate = 1 - crashRate;
 
             Random rnd = new Random();
             double d = rnd.NextDouble();
 
-            if (d > realCrushRate)
+            if (d > realCrashRate)
             {
                 int x = 0;
                 int y = 1;
@@ -43,7 +43,7 @@ namespace AwesomeWebApp.Controllers
             }
 
             SetViewBag(); 
-            ViewBag.realCrushRate = d; //override default crush rate
+            ViewBag.realCrashRate = d; //override default crush rate
             return View("Index");
         }
 
@@ -55,12 +55,12 @@ namespace AwesomeWebApp.Controllers
             try
             {
 
-                //get crush rate app setting (sticky per slot)
-                float crushRate = 0;
-                if (!string.IsNullOrEmpty(WebConfigurationManager.AppSettings["CRUSH_RATE"]))
+                //get crash rate app setting (sticky per slot)
+                float crashRate = 0;
+                if (!string.IsNullOrEmpty(WebConfigurationManager.AppSettings["CRASH_RATE"]))
                 {
-                    float.TryParse(WebConfigurationManager.AppSettings["CRUSH_RATE"].ToString(), out crushRate);
-                    ViewBag.crushRate = crushRate;
+                    float.TryParse(WebConfigurationManager.AppSettings["CRASH_RATE"].ToString(), out crashRate);
+                    ViewBag.crashRate = crashRate;
                 }
 
                 // get connection string for DB1 (sticky per slot)
@@ -75,8 +75,8 @@ namespace AwesomeWebApp.Controllers
                     ViewBag.noneStickSetting = WebConfigurationManager.AppSettings["NONE_STICK_SETTING"].ToString();
                 }
 
-                // set default crush rate for display
-                ViewBag.realCrushRate = 0.0;
+                // set default crash rate for display
+                ViewBag.realCrashRate = 0.0;
             }
             catch (Exception)
             {
