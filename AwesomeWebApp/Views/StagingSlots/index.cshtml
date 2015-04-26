@@ -10,8 +10,8 @@
     <table border="1">
         <tbody>
             <tr>
-                <td>Crush Rate</td>
-                <td>@ViewBag.crushRate</td>
+                <td>Crash Rate</td>
+                <td>@ViewBag.crashRate</td>
             </tr>
             <tr>
                 <td>Connection String</td>
@@ -24,5 +24,14 @@
         </tbody>
     </table>
 <br />
-    <div>Random crush value = @ViewBag.realCrushRate</div>
+    <div>Random crash value = @ViewBag.realCrashRate  |  @Html.ActionLink("Try crash my app", "crashapp", "StagingSlots", null, null)  |  @Html.ActionLink("Increase chance of crash", "crashapp", "StagingSlots", new {crashrate = 0.6 },null)</div>
+    <div>version 0.3.1</div>
+</div>
+<br />
+<h1>Traffic Routing (aka. TiP) </h1>
+<br />
+<div class="container">
+    <p>Use the following links to open the differnet 'staging' sites </p>
+    <p><a href="http://japandemosite.azurewebsites.net/StagingSlots">Production</a></p>
+    <p><a href="http://japandemosite-stage.azurewebsites.net/StagingSlots">Staging </a></p>
 </div>
