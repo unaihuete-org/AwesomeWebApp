@@ -1,7 +1,7 @@
 ﻿@{ 
     var appSettings = System.Configuration.ConfigurationManager.AppSettings;
     ViewBag.IsStaging = appSettings["STAGE"] == "true";
-    ViewBag.Environment = appSettings["REGION_NAME"] ?? "localhost";
+    ViewBag.Environment = Environment.GetEnvironmentVariable("REGION_NAME") ?? "localhost";
 }
 
 
