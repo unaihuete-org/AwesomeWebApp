@@ -8,7 +8,7 @@ namespace AwesomeWebApp.Tests
     [TestClass]
     public class AwesomeWebAppTests
     {
-        [Ignore]
+        //[Ignore]
         [TestMethod]
         public void FailingTest()
         {
