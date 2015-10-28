@@ -2,6 +2,7 @@
     var appSettings = System.Configuration.ConfigurationManager.AppSettings;
     ViewBag.IsStaging = appSettings["STAGE"] == "true";
     ViewBag.Environment = Environment.GetEnvironmentVariable("REGION_NAME") ?? "localhost";
+    ViewBag.MachineName = Environment.MachineName;
 }
 
 
@@ -62,6 +63,7 @@
         <footer>
             <span>&copy; @DateTime.Now.Year - Awesome Web App</span>
             <span style="padding-left: 15px;">Served from: <strong>@ViewBag.Environment</strong></span>
+            <span style="padding-left: 15px;">Machine Name: <strong>@ViewBag.MachineName</strong></span>
         </footer>
     </div>
 
