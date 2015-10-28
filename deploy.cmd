@@ -83,7 +83,7 @@ IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
 IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 3. Build Tests to the temporary path
-call :ExecuteCmd "%MSBUILD_PATH%" "%DEPLOYMENT_SOURCE%\AwesomeWebApp.Tests\AwesomeWebApp.Tests.csproj" /nologo /verbosity:m /t:Build %SCM_BUILD_ARGS%
+call :ExecuteCmd "%MSBUILD_PATH%" "%DEPLOYMENT_SOURCE%\AwesomeWebApp.Tests\AwesomeWebApp.Tests.csproj" /nologo /verbosity:m /t:Build /p:Configuration=Release %SCM_BUILD_ARGS%
 
 call vstest.console.exe "%DEPLOYMENT_SOURCE%\AwesomeWebApp.Tests\bin\Release\AwesomeWebApp.Tests.dll"
 
