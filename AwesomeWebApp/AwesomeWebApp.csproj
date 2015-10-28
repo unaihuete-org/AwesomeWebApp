@@ -139,7 +139,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include=".deployment" />
     <None Include="Properties\PublishProfiles\codez.pubxml" />
     <None Include="Properties\PublishProfiles\sitesite22.pubxml" />
     <Content Include="Properties\webjobs-list.json" />
