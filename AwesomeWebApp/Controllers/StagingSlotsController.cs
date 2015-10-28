@@ -64,9 +64,9 @@ namespace AwesomeWebApp.Controllers
                 }
 
                 // get connection string for DB1 (sticky per slot)
-                if (WebConfigurationManager.ConnectionStrings["DATABASE1"] != null)
+                if (WebConfigurationManager.ConnectionStrings["AzureWebJobsDashboard"] != null)
                 {
-                    ViewBag.databaseConnectionString = WebConfigurationManager.ConnectionStrings["DATABASE1"].ConnectionString;
+                    ViewBag.databaseConnectionString = WebConfigurationManager.ConnectionStrings["AzureWebJobsDashboard"].ConnectionString;
                 }
 
                 // get none sticky setting
