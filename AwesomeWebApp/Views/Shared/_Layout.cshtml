@@ -1,4 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    var appSettings = System.Configuration.ConfigurationManager.AppSettings;
+    ViewBag.IsStaging = appSettings["STAGE"] == "true";
+    ViewBag.Environment = Environment.GetEnvironmentVariable("REGION_NAME") ?? "localhost";
+    ViewBag.MachineName = Environment.MachineName;
+}
+
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -9,7 +17,7 @@
 </head>
 <body>
     @{
-     if (System.Configuration.ConfigurationManager.AppSettings["STAGE"] == "true") 
+     if (ViewBag.IsStaging) 
      {
         @:<div class="navbar navbar navbar-fixed-top">
      }
@@ -43,7 +51,7 @@
     
              
     @{
-        if (System.Configuration.ConfigurationManager.AppSettings["STAGE"] == "true")
+        if (ViewBag.IsStaging)
         {
             <div style="color:red; font-size:x-large"><br />Stage Stage Stage Stage Stage Stage Stage Stage Stage Stage Stage Stage Stage Stage</div>
         }
@@ -53,7 +61,9 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Awesome Web App</p>
+            <span>&copy; @DateTime.Now.Year - Awesome Web App</span>
+            <span style="padding-left: 15px;">Served from: <strong>@ViewBag.Environment</strong></span>
+            <span style="padding-left: 15px;">Machine Name: <strong>@ViewBag.MachineName</strong></span>
         </footer>
     </div>
 

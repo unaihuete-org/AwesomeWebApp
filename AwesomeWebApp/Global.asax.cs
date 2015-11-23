@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -12,7 +11,7 @@ namespace AwesomeWebApp
     {
 
         //used to store leaking memory
-        public static List<Byte[]> _memListLeakGen = new List<Byte[]>();
+        public static List<byte[]> _memListLeakGen = new List<byte[]>();
 
         protected void Application_Start()
         {
@@ -24,7 +23,7 @@ namespace AwesomeWebApp
 
         protected void Application_BeginRequest()
         {
-            Trace.WriteLine(String.Format("Request: {0}:{1}", Request.HttpMethod, Request.RawUrl));
+            Trace.WriteLine(string.Format("Request: {0}:{1}", Request.HttpMethod, Request.RawUrl));
         }
     }
 }

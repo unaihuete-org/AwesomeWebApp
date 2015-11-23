@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Configuration;
 using System.Web.Mvc;
 
 namespace AwesomeWebApp.Controllers
@@ -11,6 +8,7 @@ namespace AwesomeWebApp.Controllers
         // GET: CdnDemo
         public ActionResult Index()
         {
+            ViewBag.CDNBase = ConfigurationManager.AppSettings["WEBAPP_CDNBASE_URL"];
             return View();
         }
     }
