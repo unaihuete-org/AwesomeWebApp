@@ -16,17 +16,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup MSBuild path
-        uses: microsoft/setup-msbuild@v1.0.2
-
+      - name: Setup dotnet version
+        run : choco install dotnet4.5.1
+        
       - name: Setup NuGet
         uses: NuGet/setup-nuget@v1.0.5
 
       - name: Restore NuGet packages
         run: nuget restore
 
-      - name: Publish to folder
-        run: msbuild /nologo /verbosity:m /t:Build /t:pipelinePreDeployCopyAllFilesToOneFolder /p:_PackageTempDir="\published\"
+      - name: Build
+        run: |
+          cd AwesomeWebApp
+          dotnet build --configuration Release --no-restore
+          dotnet publish -c Release -o ../dotnet-webapp -r linux-x64 --self-contained true /p:UseAppHost=true
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
